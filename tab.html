@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>tab</title>
+<style>
+/* reset */
+html{ overflow-y:scroll;}
+body{ font-size:12px; color:#666; font-family: \5b8b\4f53,sans-serif,"Microsoft YaHei", Arial, Verdana, Helvetica; padding: 30px;}
+body,dl,dd,h1,h2,h3,h4,h5,h6,p,form{ margin:0;}
+ol,ul,fieldset,input,textarea,blockquote{ margin:0; padding:0;}
+img{ vertical-align:middle; border:none;}
+ol,ul { list-style:none;}
+li{ list-style-type:none;}
+input{ vertical-align:middle;}
+address,cite,code,em,th{ font-weight:normal; font-style:normal;}
+h1,h2,h3,h4,h5,h6,input,select,textarea,th,td{font-size:12px; font-weight:normal;}
+input{ vertical-align:middle;}
+table,td{ border-collapse:collapse;}
+table td{ empty-cells:show;}
+a{ color:#333; text-decoration:none;}
+a:hover{ color:#f00; text-decoration:underline;}
+/* class */
+.fb {font-weight:bold}
+.fi {font-style:italic}
+.linethrough {text-decoration:line-through}
+.f12px{ font-size:12px}
+.f14px{ font-size:14px}
+.f18px{ font-size:18px}
+.left{ float:left;}
+.right{ float:right;}
+.underline{ text-decoration:underline;}
+.blank10{ height:10px; display:block; overflow:hidden;}
+.blank15{ height:10px; display:block; overflow:hidden;}
+.blank20{ height:10px; display:block; overflow:hidden;}
+.clearfix{ zoom:1}
+.clearfix:after{ display:block; clear:both; content:""; visibility:hidden; height:0;}
+
+.tab li{
+	float: left;
+	width: 60px;
+	height: 20px;
+	cursor: pointer;
+	text-align: center;
+	background-color: #eee;
+	padding: 5px;
+	text-align: center;
+}
+.tab-cont{
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+	width: 500px;
+}
+.slide-bar{
+	width: 60px;
+	height: 5px;
+	background-color: #333;
+	position: absolute;
+}
+.tab .on{
+	color: #fff;
+	background-color: #333;
+}
+</style>
+</head>
+
+<body>
+<ul class="tab clearfix" id="tab1" data-trigger="tab" data-options="{'events':'click','auto':true,'time':2000}">
+	<li data-nav="tab" data-target="#cont1">1</li>
+	<li data-nav="tab" data-target="#cont2" class="on">2</li>
+	<li data-nav="tab" data-target="#cont3">3</li>
+</ul>
+<div>
+	<div class="tab-cont" data-cont="tab" id="cont1" style="display:none;">1</div>
+	<div class="tab-cont" data-cont="tab" id="cont2">2</div>
+	<div class="tab-cont" data-cont="tab" id="cont3" style="display:none;">3</div>
+</div>
+
+<script type="text/javascript" src="lib/jquery-3.0.0.min.js"></script>
+<script type="text/javascript" src="src/tab.js"></script>
+<script type="text/javascript">
+(function($) {
+	// 指定到某个tab时触发
+	$('#tab1').on('index.enjoy.tab', function(e, i){
+		if(i == 1){
+			console.log && console.log(i);
+		}
+	});
+})(jQuery);	
+</script>
+</body>
+</html>
